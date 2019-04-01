@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 const App = props => {
-  const [array, setArray] = useState([]);
+  const [array, setArray] = useState();
 
   useEffect(
     () => {
@@ -21,9 +21,12 @@ const App = props => {
 
   return (
     <div>
-    { array ? 
-      <p>{JSON.stringify(array)}</p> :
-      <p>Loading...</p> }
+    { array
+      ? <code>
+          <pre>{JSON.stringify(array, null, 2)}
+          </pre>
+        </code>
+      : <p>Loading...</p> }
     </div>
   );
 };
